@@ -1,0 +1,743 @@
+.joinUsPage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated Background */
+.backgroundElements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floatingOrb1, .floatingOrb2, .floatingOrb3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.1;
+}
+
+.floatingOrb1 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  top: 10%;
+  left: 10%;
+}
+
+.floatingOrb2 {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  top: 60%;
+  right: 10%;
+}
+
+.floatingOrb3 {
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  bottom: 20%;
+  left: 20%;
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 800;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-primary) 50%, #667eea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradientText {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease infinite;
+}
+
+.sparkleContainer {
+  display: flex;
+  align-items: center;
+}
+
+.sparkle {
+  color: #ffd700;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* Stats Overview */
+.statsOverview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.statItem:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+}
+
+.statNumber {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Section Styles */
+.whyJoin, .getInTouch, .membershipTiers, .ctaSection {
+  margin-bottom: 6rem;
+  position: relative;
+  z-index: 1;
+}
+
+.sectionTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+}
+
+.sectionSubtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* Benefits Grid */
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.benefitCard {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.benefitCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent-gradient);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.benefitCard:hover::before {
+  transform: scaleX(1);
+}
+
+.benefitCard:hover {
+  border-color: rgba(102, 126, 234, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.benefitIcon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #667eea;
+  border: 2px solid rgba(102, 126, 234, 0.3);
+}
+
+.benefitCard h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.benefitCard p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.featureTag {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+  padding: 0.5rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.featureTag svg {
+  color: #ffd700;
+}
+
+/* Membership Tiers */
+.membershipTiers {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  padding: 4rem 2rem;
+  border-radius: 30px;
+  margin: 4rem -2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tiersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tierCard {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.tierCard.featured {
+  border: 2px solid #667eea;
+  background: rgba(102, 126, 234, 0.1);
+  transform: scale(1.05);
+}
+
+.featuredBadge {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tierHeader {
+  margin-bottom: 2rem;
+}
+
+.tierIcon {
+  color: #667eea;
+  margin-bottom: 1rem;
+}
+
+.tierCard h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.tierPrice {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #667eea;
+}
+
+.tierFeatures {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.tierFeatures li {
+  padding: 0.5rem 0;
+  color: var(--text-secondary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+.tierFeatures li:before {
+  content: '✓';
+  color: #48bb78;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.tierFeatures li:last-child {
+  border-bottom: none;
+}
+
+.tierButton, .tierButtonFeatured {
+  width: 100%;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tierButton {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tierButtonFeatured {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.tierButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.tierButtonFeatured:hover {
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Contact Grid */
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contactCard {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contactCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--accent-gradient);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.contactCard:hover::before {
+  opacity: 0.1;
+}
+
+.contactCard:hover {
+  border-color: transparent;
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.contactCard.whatsapp:hover {
+  border-color: #25d366;
+}
+
+.contactCard.email:hover {
+  border-color: #667eea;
+}
+
+.contactIcon {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.contactCard.whatsapp .contactIcon {
+  background: rgba(37, 211, 102, 0.1);
+  color: #25d366;
+  border: 2px solid rgba(37, 211, 102, 0.3);
+}
+
+.contactCard.email .contactIcon {
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+  border: 2px solid rgba(102, 126, 234, 0.3);
+}
+
+.contactInfo {
+  flex: 1;
+}
+
+.contactInfo h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.contactInfo p {
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.emailAddress {
+  font-family: 'Fira Code', monospace;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contactHint {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.arrowContainer {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.contactCard:hover .arrowContainer {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(5px);
+}
+
+.arrowIcon {
+  color: var(--text-secondary);
+}
+
+.floatingAnimation {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  opacity: 0.5;
+}
+
+.contactCard.whatsapp .floatingAnimation {
+  color: #25d366;
+}
+
+.contactCard.email .floatingAnimation {
+  color: #667eea;
+}
+
+/* CTA Section */
+.ctaSection {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  margin: 0 -2rem;
+  padding: 6rem 2rem;
+  text-align: center;
+  border-radius: 30px;
+}
+
+.ctaContent {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ctaIcon {
+  color: white;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.ctaContent h2 {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+
+.ctaContent p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaButtonPrimary, .ctaButtonSecondary {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.2rem 2.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.ctaButtonPrimary {
+  background: white;
+  color: #25d366;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.ctaButtonSecondary {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.ctaButtonPrimary:hover, .ctaButtonSecondary:hover {
+  transform: translateY(-2px);
+}
+
+/* Floating Action Button */
+.floatingAction {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+}
+
+.fab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: white;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+}
+
+/* Animations */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .title {
+    font-size: 3rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .joinUsPage {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .titleContainer {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .statsOverview {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .statNumber {
+    font-size: 2rem;
+  }
+
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .contactCard {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .tiersGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .tierCard.featured {
+    transform: none;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ctaButtonPrimary, .ctaButtonSecondary {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  .membershipTiers {
+    margin: 2rem -1rem;
+    padding: 3rem 1rem;
+  }
+
+  .ctaSection {
+    margin: 0 -1rem;
+    padding: 4rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .statsOverview {
+    grid-template-columns: 1fr;
+  }
+  
+  .benefitCard, .tierCard, .contactCard {
+    padding: 2rem 1.5rem;
+  }
+  
+  .fab {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .fab svg {
+    size: 20px;
+  }
+}

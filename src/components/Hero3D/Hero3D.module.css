@@ -1,0 +1,11 @@
+.canvasContainer {
+  width: 100%;
+  height: 500px; /* Height for the 3D object */
+  cursor: grab;
+}
+
+@media (max-width: 768px) {
+  .canvasContainer {
+    height: 350px; /* Smaller height on mobile */
+  }
+}

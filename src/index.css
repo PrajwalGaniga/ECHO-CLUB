@@ -1,0 +1,75 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+/* Define our Dark Mode Color Palette as CSS Variables
+*/
+:root {
+  --bg-primary: #121212;     /* Very dark grey (main background) */
+  --bg-secondary: #1E1E1E;   /* Lighter dark grey (for surfaces) */
+  --text-primary: #E0E0E0;   /* Light grey (main text) */
+  --text-secondary: #B3B3B3; /* Dimmer grey */
+  --accent-primary: #00BFFF; /* Deep Sky Blue (vibrant!) */
+  
+  /* The gradient you asked for */
+  --accent-gradient: linear-gradient(90deg, #00BFFF, #1E90FF);
+}
+
+/* Reset styles for all browsers */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  
+  /* Apply our new dark theme colors */
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+/* --- Custom Cursor Styles --- */
+body {
+  cursor: none; /* Hide the default system cursor */
+}
+
+.cursorDot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-primary);
+  border-radius: 50%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.3s, height 0.3s;
+}
+
+.cursorOutline {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--accent-primary);
+  border-radius: 50%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: opacity 0.3s, transform 0.1s;
+}
+
+/* Add hover effect for links */
+a:hover ~ .cursorOutline,
+button:hover ~ .cursorOutline {
+  opacity: 0.5;
+}
+
+a:hover ~ .cursorDot,
+button:hover ~ .cursorDot {
+  width: 12px;
+  height: 12px;
+}

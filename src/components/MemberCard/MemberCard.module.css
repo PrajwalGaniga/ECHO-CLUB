@@ -1,0 +1,380 @@
+.cardContainer {
+  perspective: 1000px;
+  width: 100%;
+  aspect-ratio: 3/4;
+  cursor: pointer;
+}
+
+.cardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.cardFace {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  /* Use our theme colors */
+  background: var(--bg-secondary);
+  border: 1px solid #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Common Card Elements */
+.coreBadge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  /* Use our theme gradient */
+  background: var(--accent-gradient);
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  z-index: 10;
+  box-shadow: 0 4px 15px rgba(0, 191, 255, 0.4);
+}
+
+.profilePic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid;
+  /* Use our theme color for the border */
+  border-color: var(--accent-primary);
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+}
+
+.memberName {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.memberRole {
+  font-size: 1rem;
+  color: var(--accent-primary);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.funFact {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+.sideIndicator {
+  position: absolute;
+  bottom: 1rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+/* Side 1: Profile Overview */
+.cardFront {
+  justify-content: center;
+}
+
+.quickStats {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.stat svg {
+  color: var(--accent-primary);
+}
+
+/* Side 2: Skills & Achievements */
+.cardBack {
+  justify-content: flex-start;
+}
+
+.sideHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sideHeader h4 {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.sideIcon {
+  color: var(--accent-primary);
+}
+
+.starsSection {
+  margin-bottom: 1.5rem;
+}
+
+.starsDisplay {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+  justify-content: center;
+}
+
+.star {
+  color: #ffd700;
+  opacity: 0.3;
+}
+
+.star.filled {
+  color: #ffd700;
+  opacity: 1;
+  filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.6));
+}
+
+.starsLabel {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.achievements {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.achievement {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  padding: 0.5rem;
+  background: var(--bg-primary);
+  border-radius: 8px;
+}
+
+.achievement svg {
+  color: var(--accent-primary);
+}
+
+.skillsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.skillTag {
+  background: rgba(0, 191, 255, 0.1);
+  color: var(--accent-primary);
+  padding: 0.3rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  border: 1px solid rgba(0, 191, 255, 0.2);
+}
+
+/* Side 3: Social & Contact */
+.cardSocial {
+  justify-content: flex-start;
+}
+
+.contactInfo {
+  margin-bottom: 1.5rem;
+}
+
+.memberUsn {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.memberYear {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.socialLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  background: var(--bg-primary);
+  border: 1px solid #333;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.socialLink:hover {
+  background: rgba(0, 191, 255, 0.1);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.hobbies h5 {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.hobbiesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+}
+
+.hobbyTag {
+  background: rgba(244, 114, 182, 0.1);
+  color: #f472b6;
+  padding: 0.25rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.65rem;
+  border: 1px solid rgba(244, 114, 182, 0.2);
+}
+
+/* Side 4: Personal Touch */
+.cardPersonal {
+  justify-content: space-between;
+}
+
+.personalContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.heartIcon {
+  color: #ff6b6b;
+  filter: drop-shadow(0 0 8px rgba(255, 107, 107, 0.4));
+}
+
+.memberQuote {
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  text-align: center;
+}
+
+.activityLevel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.activityBar {
+  width: 100%;
+  height: 6px;
+  background: var(--bg-primary);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.activityFill {
+  height: 100%;
+  background: var(--accent-gradient);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.activityLevel span {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.funStats {
+  display: flex;
+  gap: 1rem;
+}
+
+.funStat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.funStat svg {
+  color: var(--accent-primary);
+}
+
+.flipHint {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cardFace {
+    padding: 1.5rem 1rem;
+  }
+  
+  .profilePic {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .memberName {
+    font-size: 1.2rem;
+  }
+  
+  .quickStats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .socialLinks {
+    gap: 0.5rem;
+  }
+  
+  .socialLink {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
